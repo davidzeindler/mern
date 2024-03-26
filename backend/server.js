@@ -11,8 +11,6 @@ const app = express();
 console.log("Welcome to server")
 
 
-
-
 app.use(express.json);
 app.use(express.urlencoded({extended: false}))    
 

@@ -8,12 +8,10 @@ const articles = require('./routes/articlesRoutes');
 
 const app = express();
 
+app.use(express.json());
+app.use(express.urlencoded({ extended: false}))
+
 console.log("Welcome to server")
-
-
-app.use(express.json);
-app.use(express.urlencoded({extended: false}))    
-
 
 app.get('/', (req, res)=> {
     console.log('---> root')

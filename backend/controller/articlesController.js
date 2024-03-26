@@ -7,11 +7,11 @@ const setArticle = (req, res) => {
 }
 
 const updateArticle = (req, res) => {
-    res.status(200).json({message: 'Update Article'});
+    res.status(200).json({message: `Update Article ${req.params.id}`});
 }
 
 const deleteArticle = (req, res) => {
-    res.status(200).json({message: 'Delete Article'});
+    res.status(200).json({message: `Delete Article ${req.params.id}`});
 }
 
 module.exports = { getArticle, setArticle, updateArticle, deleteArticle }

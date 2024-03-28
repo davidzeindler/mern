@@ -17,6 +17,7 @@ const setArticle = asyncHandler(async(req, res) => {
             introduction: req.body.introduction,
             text: req.body.text,
             user: req.user.id
+
         });  
     res.status(200).json(article);
 })

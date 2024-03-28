@@ -7,6 +7,7 @@ var jwt = require('jsonwebtoken');
 // JWT
 const generateJWTToken = id => jwt.sign({id}, process.env.JWT_SECRET, { expiresIn: '5d'})
 
+
 const registerUser = asyncHandler(async (req, res)=> {
 
     const { name, email, password} = req.body;
@@ -70,6 +71,7 @@ const loginUser = asyncHandler(async (req, res)=> {
 
 
 const getCurrentUser = asyncHandler(async (req, res) => {
+
     const {_id, name, email } = await User.findById(req.user.id)
     res.json({ id: _id, name , email });
 });
@@ -87,8 +89,6 @@ const deleteUser = asyncHandler(async (req, res)=> {
     }
     console.log(user.email);
 });
-
-
 
 module.exports = { registerUser, loginUser, getCurrentUser, getUsers, deleteUser}
 

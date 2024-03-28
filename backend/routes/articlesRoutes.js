@@ -9,5 +9,4 @@ router.post('/', protect, setArticle); // create
 router.put('/:id', protect, updateArticle); // update
 router.delete('/:id', protect, deleteArticle); // delete
 
-
 module.exports = router;

@@ -12,7 +12,6 @@ const user = require('./routes/userRoutes');
 connectDB();
 const app = express();
 
-
 app.use(express.json());
 app.use(express.urlencoded({ extended: false}));
 
@@ -29,7 +28,6 @@ app.get('/api', (req, res)=> {
 app.use(tasks);
 app.use('/api/articles', articles);
 app.use('/api/users', user);
-
 
 app.use(errorHandler);
 app.listen(port, () => console.log(`Server listening on ${port}`));

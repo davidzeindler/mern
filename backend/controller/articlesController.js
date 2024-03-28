@@ -2,7 +2,7 @@ const asyncHandler = require('express-async-handler')
 const Article = require('../model/articleModel')
 
 const getArticle = asyncHandler(async(req,res) => {
-    const articles = await Article.find();
+    const articles = await Article.find({user: req.user.id});
     res.status(200).json(articles);
 })
 
@@ -16,7 +16,8 @@ const setArticle = asyncHandler(async(req, res) => {
             title: req.body.title,
             introduction: req.body.introduction,
             text: req.body.text,
-            author: req.body.author,
+            user: req.user.id
+
         });  
     res.status(200).json(article);
 })

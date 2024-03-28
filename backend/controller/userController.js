@@ -2,6 +2,11 @@ const asyncHandler = require('express-async-handler')
 const User = require('../model/userModel')
 const bcrypt = require('bcryptjs')
 
+var jwt = require('jsonwebtoken');
+
+// JWT
+const generateJWTToken = id => jwt.sign({id}, process.env.JWT_SECRET, { expiresIn: '5d'})
+
 
 const registerUser = asyncHandler(async (req, res)=> {
 
@@ -28,7 +33,8 @@ const registerUser = asyncHandler(async (req, res)=> {
         res.json({
             _id: user._id,
             name: user.name,
-            email: user.email
+            email: user.email,
+            token: generateJWTToken(user.id)
          });
     }
     else {
@@ -50,7 +56,12 @@ const loginUser = asyncHandler(async (req, res)=> {
     console.log(user);
     if(user && (await bcrypt.compare(password, user.password))){
         console.log(user);
-        res.json({_id: user.id, name: user.name, email: user.email});
+        res.json({
+                    _id: user.id, 
+                    name: user.name, 
+                    email: user.email, 
+                    token: generateJWTToken(user.id)
+                });
     }
     else {
         res.status(400);
@@ -60,9 +71,9 @@ const loginUser = asyncHandler(async (req, res)=> {
 
 
 const getCurrentUser = asyncHandler(async (req, res) => {
-    res.json({
-        message: 'Current user data'
-    });
+
+    const {_id, name, email } = await User.findById(req.user.id)
+    res.json({ id: _id, name , email });
 });
 
 const getUsers = asyncHandler(async (req, res) => {

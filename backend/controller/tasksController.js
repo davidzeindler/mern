@@ -62,8 +62,9 @@ const deleteTask = asyncHandler (async (req, res) => {
         throw new Error('User is not authorized to update');
     }
 
-    task = await Task.findByIdAndDelete(req.params.id);
-    res.status(200).json({message: `Deleted Task ${req.params.id}`});
+    
+    const deletedArticle = await Task.findByIdAndDelete(req.params.id);
+    res.status(200).json({message: `Deleted Task ${deletedArticle.id}`});
 })
 
 module.exports = { getTasks, setTask, updateTask, deleteTask }

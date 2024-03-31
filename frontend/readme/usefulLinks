@@ -1,0 +1,9 @@
+1. Problem of "Invalid Host header"
+. https://github.com/gitpod-io/gitpod/issues/628
+. solution: 
+. set "DANGEROUSLY_DISABLE_HOST_CHECK=true" to .env file of the project for gitpod
+
+2.
+.
+.
+.

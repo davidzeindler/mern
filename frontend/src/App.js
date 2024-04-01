@@ -5,11 +5,12 @@ import Dashboard from '../src/app/components/Dashboard';
 import Login from '../src/app/components/Login';
 import Register from '../src/app/components/Register';
 import Header from '../src/app/components/header';
+import { ToastContainer } from 'react-toastify';
 
 
 function App() {
   return (
-    
+    <>   
     <Router>     
       <div className='container' >
         <Header />
@@ -20,7 +21,8 @@ function App() {
         </Routes>
       </div>
     </Router>
-    
+    <ToastContainer />
+    </>
   );
 }
 

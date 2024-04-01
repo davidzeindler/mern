@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
-import { TaskForm} from '..components/TaskForm'
+import { TaskForm } from '../components/TaskForm'
 
 
 const Dashboard = () => {

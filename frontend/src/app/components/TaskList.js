@@ -19,8 +19,8 @@ const TaskList = () => {
     return (
         isLoading ? <Spinner /> : (
             <section className='content'>
-                {tasks.length > 0 && (f
-                    <div className='tasks'>
+                {tasks.length > 0 && (
+                    <div className='tasks' >
                         {tasks.map(task => <TaskItem key={task._id} task={task} />)}
                     </div>
                 )}

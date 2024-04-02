@@ -1,9 +1,29 @@
 import { useState } from 'react'
-import  { useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
+import { createTask } from '../features/tasks/taskSlice'
 
 const TaskForm = () => {
+    const [text, setText] = useState('')
+
+    const onSubmit = (e) => {
+        e.preventDefault()
+        dispatch(createTask({ text }))
+        setText('')
+    }
+
     return (
-        <div>TaskForm</div>
+        <section className='form'>
+            <form onSubmit={onSubmit}>
+                <div className='form-group'>
+                    <label htmlFor='text'>Task</label>
+                    <input type='text' id='text' value={text} onChange={e => setText(e.target.value)}
+                    />
+                </div>
+                <div className='form-group'>
+                    <button className='btn btn-block' type='submit'>Add Task</button>
+                </div>
+            </form>
+        </section>
     )
 }
 

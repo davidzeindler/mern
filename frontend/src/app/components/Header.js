@@ -2,7 +2,6 @@ import { FaSignInAlt, FaSignOutAlt, FaUser } from 'react-icons/fa'
 import { Link, useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { logout, reset } from '../features/auth/authSlice'
-import TaskForm from './TaskForm'
 
 const Header = () => {
     const navigate = useNavigate()
@@ -22,11 +21,17 @@ const Header = () => {
             </div>
             <ul>
                 {user ? (
-                    <li>
-                        <button className='btn' onClick={logoutFn}>
-                            <FaSignOutAlt /> Logout
-                        </button>
-                    </li>
+                    <>
+                        <li>
+                            <Link to='/articles-entry'>Articles</Link>
+                        </li>
+                        <li>
+                            <Link to='/tasks-Board'>Tasks</Link>
+                        </li>
+                        <li>
+                            <button className='btn' onClick={logoutFn}><FaSignOutAlt /> Logout</button>
+                        </li>
+                    </>
                 ) : (
                     <>
                         <li>

@@ -7,6 +7,11 @@ const getArticle = asyncHandler(async(req,res) => {
     res.status(200).json(articles);
 })
 
+const getArticles = asyncHandler(async(req,res) => {
+    const articles = await Article.find({user: req.user.id});
+    res.status(200).json(articles);
+})
+
 const setArticle = asyncHandler(async(req, res) => {
     if(!(req.body.title || req.body.introduction || req.body.text || req.body.author)){
         res.status(400);
@@ -72,4 +77,4 @@ const deleteArticle = asyncHandler(async(req, res) => {
     res.status(200).json({message: `Deleted Article ${req.params.id}`});
 })
 
-module.exports = { getArticle, setArticle, updateArticle, deleteArticle }
+module.exports = { getArticle, getArticles, setArticle, updateArticle, deleteArticle }

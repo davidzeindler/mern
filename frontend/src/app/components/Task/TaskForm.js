@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { createTask } from '../features/tasks/taskSlice'
+import { createTask } from '../../features/tasks/taskSlice'
 import { useNavigate } from 'react-router-dom'
 
 const TaskForm = () => {
@@ -12,7 +12,7 @@ const TaskForm = () => {
         e.preventDefault()
         dispatch(createTask({ text }))
         setText('')
-        navigate('/alltasks')
+        navigate('/all-tasks')
     }
 
     return (

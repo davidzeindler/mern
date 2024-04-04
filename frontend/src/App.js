@@ -8,9 +8,6 @@ import Header from './app/components/Header';
 import { ToastContainer } from 'react-toastify';
 import TaskBoard from './app/components/Task/TasksBoard';
 import TaskList from '../src/app/components/Task/TaskList';
-import ArticlesBoard from '../src/app/components/Article/ArticlesBoard';
-import ArticleForm from '../src/app/components/Article/ArticleForm';
-import ArticleList from './app/components/Article/ArticleList';
 
 
 function App() {
@@ -25,9 +22,6 @@ function App() {
           <Route path='/register' element={<Register/>} />
           <Route path='/tasks-board' element={<TaskBoard/>} />
           <Route path='/all-tasks' element={<TaskList/>} />
-          <Route path='/articles-board' element={<ArticlesBoard/>} />
-          <Route path='/articles-entry' element={<ArticleForm/>} />
-          <Route path='/all-articles' element={<ArticleList/>} />
         </Routes>
       </div>
     </Router>

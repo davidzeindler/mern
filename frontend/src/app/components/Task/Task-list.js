@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { getTasks, reset } from '../../features/tasks/taskSlice'
-import TaskItem from './TaskItem'
+import { getTasks, reset } from '../../features/tasks/task-slice'
+import TaskItem from './Task-item'
 import Spinner from '../Spinner'
 import { useNavigate } from 'react-router-dom'
 

@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { createTask } from '../../features/tasks/taskSlice'
+import { createTask } from '../../features/tasks/task-slice'
 import { useNavigate } from 'react-router-dom'
 
 const TaskForm = () => {

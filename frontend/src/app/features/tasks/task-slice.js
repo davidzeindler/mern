@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
-import taskService from './taskService'
+import taskService from './task-service'
 
 const initialState = {
     tasks: [],

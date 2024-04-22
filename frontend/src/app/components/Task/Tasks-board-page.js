@@ -1,8 +1,8 @@
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
-import TaskForm from './TaskForm'
-import TaskList from './TaskList'
+import TaskForm from './Task-form'
+import TaskList from './Task-list'
 
 
 const TaskBoard = () => {

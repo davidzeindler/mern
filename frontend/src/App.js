@@ -1,13 +1,13 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
-import Dashboard from '../src/app/components/Dashboard';
-import Login from '../src/app/components/Login';
-import Register from '../src/app/components/Register';
+import Dashboard from '../src/app/components/Dashboard-page';
+import Login from '../src/app/components/Login-page';
+import Register from '../src/app/components/Register-page';
 import Header from './app/components/Header';
 import { ToastContainer } from 'react-toastify';
-import TaskBoard from './app/components/Task/TasksBoard';
-import TaskList from '../src/app/components/Task/TaskList';
+import TaskBoard from './app/components/Task/Tasks-board-page';
+import TaskList from '../src/app/components/Task/Task-list';
 
 
 function App() {

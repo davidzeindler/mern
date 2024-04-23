@@ -7,10 +7,10 @@ const bookLibraryBookSchema = mongoose.Schema(
                     enmum: ['en', 'de', 'it', 'fr', 'es'], 
                     required: [true, 'Please add a language value']
         },
-        authors: [{
+        author: {
             type: String,
-            required: [true, 'Please add a at least one author value']
-        }],
+            required: [true, 'Please add an author value']
+        },
         publisher: {
             type: String,
             required: [true, 'Please add a publisher value']
@@ -25,20 +25,13 @@ const bookLibraryBookSchema = mongoose.Schema(
         },
         edition: {
             type: String,
-            required: [true, 'Please add a edition value']
+            required: [true, 'Please add an edition value']
         },
-        organisation: { type: mongoose.Schema.Types.ObjectId, required: true, ref: 'BookLibraryOrganisation'},
-        lastUpdated: {
-            type: Date,
-            default: Date.now
-        },
-        lastUpdatedBy: {
-             organisation: {type: mongoose.Schema.Types.ObjectId, required: true, ref: 'User'},
-        },
+        organisation: { type: mongoose.Schema.Types.ObjectId, required: true, index: true, ref: 'BookLibrary_Organisation'},
     },
     {
         timestamps: true
     }
 )
 
-module.exports = mongoose.model('BookLibrary_Book', bookLibraryBookSchema)
+module.exports = mongoose.model('BookLibraryBook', bookLibraryBookSchema)

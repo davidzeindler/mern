@@ -1,11 +1,11 @@
 const mongoose = require('mongoose')
-const bookLibraryBorrowedSchema = mongoose.Schema(
+const bookLibraryBorrowSchema = mongoose.Schema(
     {
         borrowedBy: {
             type: mongoose.Schema.Types.ObjectId,
             required: true, 
             index: true,
-            ref: 'bookLibraryMember'
+            ref: 'User'
         },
         borrowedBook: {
             type: mongoose.Schema.Types.ObjectId,
@@ -29,4 +29,4 @@ const bookLibraryBorrowedSchema = mongoose.Schema(
     }
 )
 
-module.exports = mongoose.model('BookLibrary_Borrowed', bookLibraryBorrowedSchema)
+module.exports = mongoose.model('bookLibraryBorrowSchema', bookLibraryBorrowSchema)

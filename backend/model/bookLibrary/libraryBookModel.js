@@ -2,6 +2,9 @@ const mongoose = require('mongoose')
 const bookLibraryBookSchema = mongoose.Schema(
     {
         title: { type: String, required: [true, 'Please add a title value']},
+        ISBN: {
+            type: String,
+        },
         language: { 
                     type: String,
                     enmum: ['en', 'de', 'it', 'fr', 'es'], 
@@ -19,6 +22,9 @@ const bookLibraryBookSchema = mongoose.Schema(
             type: String,
             required: [true, 'Please add a summary value']
         },
+        numberOfPages: {
+            type: Number,
+        },
         year: { 
             type: Number,
             required: [true, 'Please add a year value']
@@ -27,11 +33,11 @@ const bookLibraryBookSchema = mongoose.Schema(
             type: String,
             required: [true, 'Please add an edition value']
         },
-        organisation: { type: mongoose.Schema.Types.ObjectId, required: true, index: true, ref: 'BookLibrary_Organisation'},
+        library: { type: mongoose.Schema.Types.ObjectId, required: true, index: true, ref: 'Library_Library'},
     },
     {
         timestamps: true
     }
 )
 
-module.exports = mongoose.model('BookLibraryBook', bookLibraryBookSchema)
+module.exports = mongoose.model('Library_book', bookLibraryBookSchema)

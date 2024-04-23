@@ -1,32 +1,28 @@
 const mongoose = require('mongoose')
-const bookLibraryBorrowSchema = mongoose.Schema(
+const libraryLendSchema = mongoose.Schema(
     {
-        borrowedBy: {
+        LendingBy: {
             type: mongoose.Schema.Types.ObjectId,
             required: true, 
-            index: true,
             ref: 'User'
         },
-        borrowedBook: {
+        book: {
             type: mongoose.Schema.Types.ObjectId,
             required: true, 
             ref: 'Book'
         },
-        start: {
+        startLending: {
             type: Date,
             default: Date.now
         },
-        end: {
+        endLending: {
             type: Date,
-            required: [true, 'Please add a end date value']
-
+            required: true
         }
-
-
     },
     {
         timestamps: true
     }
 )
 
-module.exports = mongoose.model('bookLibraryBorrowSchema', bookLibraryBorrowSchema)
+module.exports = mongoose.model('Library_lend', libraryLendSchema)

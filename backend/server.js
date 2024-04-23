@@ -8,7 +8,9 @@ const port = process.env.PORT || 5000;
 const tasks = require('./routes/tasksRoutes');
 const articles = require('./routes/articlesRoutes');
 const user = require('./routes/userRoutes');
-const books = require('./routes/bookLibraryRoutes');
+const books = require('./routes/libraryRoutes');
+const organisation = require('./routes/organisationsRoutes');
+const userAccess = require('./routes/userAccessRoutes');
 
 connectDB();
 const app = express();
@@ -30,6 +32,8 @@ app.use(tasks);
 app.use('/api/articles', articles);
 app.use('/api/users', user);
 app.use('/api', books);
+app.use('/api', organisation );
+app.use('/api', userAccess);
 
 
 app.use(errorHandler);

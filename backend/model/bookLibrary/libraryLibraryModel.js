@@ -1,9 +1,12 @@
 const mongoose = require('mongoose')
-const organisationSchema = mongoose.Schema(
+const librarySchema = mongoose.Schema(
     {
+        name: {
+            type: String,
+            required: [true, 'Name of Library is required'], 
+        },
         organisation: { type: mongoose.Schema.Types.ObjectId,
             required: true, 
-            index: true,
             unique: true,
             ref: 'Organisation'
         },
@@ -13,4 +16,4 @@ const organisationSchema = mongoose.Schema(
     }
 )
 
-module.exports = mongoose.model('bookLibraryOrganisation', organisationSchema)
+module.exports = mongoose.model('Library_Library', librarySchema)

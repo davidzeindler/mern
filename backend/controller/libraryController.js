@@ -1,4 +1,5 @@
 const asyncHandler = require('express-async-handler')
+const dayjs = require('dayjs')
 const LibraryMember = require('../model/bookLibrary/libraryMemberModel')
 const OrgLibrary = require('../model/bookLibrary/libraryLibraryModel')
 const Organisation = require('../model/organisationModel')
@@ -78,14 +79,13 @@ const lendingBook = asyncHandler(async(req,res) => {
     
     const book = await LibraryBook.findById(req.body.bookId);
 
-    const dateNow = Date.now().toString()
     if(book) {
         const bookInCirculations = await BookInCirculations.create(
             {
                 LendingBy: req.user.id,
                 book: book.id,
-                startLending: new Date(),
-                endLending: new Date()
+                startLending: dayjs(),
+                endLending: dayjs().add(1, 'month'),
             }
         )
         res.status(200).json(bookInCirculations);

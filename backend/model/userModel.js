@@ -15,7 +15,15 @@ const userSchema = mongoose.Schema(
         {
             type: String,
             required: [true, 'Password is required'],
-        }
+            
+        },
+        roles: [
+            {
+              type: mongoose.Schema.ObjectId,
+              ref: 'Role',
+              unique: true,
+            },
+          ],
     },
     {
         timestamps: true

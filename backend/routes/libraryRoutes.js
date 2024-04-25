@@ -6,7 +6,7 @@ const { createLibrary, addLoggedUserToLibrary, addBookToLibrary, getAllBooksFrom
 
 const { protect } = require('../middleware/authMiddleware');
 
-router.post('/libraries/create', protect, createLibrary);
+router.post('/library/create', protect, createLibrary);
 router.post('/library/join', protect, addLoggedUserToLibrary);
 router.post('/library/book/add', protect, addBookToLibrary);
 router.post('/library/book/lend', protect, lendingBook );

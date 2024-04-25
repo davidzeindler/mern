@@ -90,8 +90,6 @@ const lendingBook = asyncHandler(async(req,res) => {
         )
         res.status(200).json(bookInCirculations);
     }       
-
-    
 });
 
 module.exports = { createLibrary, addLoggedUserToLibrary, addBookToLibrary, getAllBooksFromLibrary, lendingBook }

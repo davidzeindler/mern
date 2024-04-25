@@ -17,13 +17,16 @@ const Header = () => {
     return (
         <header className='header'>
             <div className="logo">
-                <Link to='/'>Task Creator</Link>
+                <Link to='/'>Bibliothek App</Link>
             </div>
             <ul>
                 {user ? (
                     <>
+                        <li>                           
+                            <Link to='/tasks-Board'>Bibliothek</Link>
+                        </li>
                         <li>
-                            <Link to='/tasks-Board'>Tasks</Link>
+                            <Link to='/tasks-Board'>Tasks</Link>    
                         </li>
                         <li>
                             <button className='btn' onClick={logoutFn}><FaSignOutAlt /> Logout</button>
